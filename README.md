@@ -23,3 +23,15 @@ Related GitHub repository:
 
 Related paper:
 <https://arxiv.org/abs/1910.01108>
+
+## Build
+
+```sh
+make
+```
+
+## Run
+
+```sh
+docker run distilbert-finetuning:latest
+```
