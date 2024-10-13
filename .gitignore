@@ -1,0 +1,17 @@
+venv
+.idea
+sandbox
+*.pyc
+**/__pycache__
+.vscode
+.coverage
+coverage_html_report
+*.egg-info
+.pytest_cache
+sandbox
+poc.py
+.eggs
+.scannerwork
+dist
+coverage.xml
+asdf*
