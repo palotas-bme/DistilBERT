@@ -5,7 +5,7 @@ Team name: **Tensor Titans**
 ## Team members
 
 - Péter M. Palotás - K8GD4Q
-- Csanád Mihály Skribanek
+- Csanád Mihály Skribanek - G0OTOY
 
 ## Project description
 
