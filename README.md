@@ -18,14 +18,14 @@ You can also use parameter-efficient methods (low-rank adaptation, quantization,
 Finetune the model for question answering task. Build the inference pipeline, report results for the pretrained model and for the fine-tuned version, as well.
 If you're up for a challenge, you can find other databases, or translate them to Hungarian and see how your model performs on Hungarian questions.
 
-We use the MRQA dataset to finetune our model which is a dataset for training LLMs for extractive question answering tasks. It includes multiple datasets (for example: SQUAD, TriviaQA, NaturalQA) in a uniform format. 
-
 Related GitHub repository:
 <https://github.com/huggingface/transformers/tree/main/examples/research_projects/distillation>
 
 Related paper:
 <https://arxiv.org/abs/1910.01108>
 
+## Current state of the project
+We are going to use the MRQA dataset to finetune our model which is a dataset for training LLMs for extractive question answering tasks. It includes multiple datasets (for example: SQUAD, TriviaQA, NaturalQA) in a uniform format. The files required for submission for Milestone 1 can be found in the Milestone 1 directory. The preprocess file runs automatically when running the docker image. 
 ## Build
 
 ```sh
