@@ -5,6 +5,10 @@ import json
 # The MRQA dataset is included in huggingface's datasets library, so we just have to load it
 mrqa = load_dataset("mrqa", split="train[:20%]")
 mrqa = mrqa.train_test_split(test_size=0.2)
+mrqa["train"] = mrqa["train"].train_test_split(test_size=0.2)
+mrqa["val"] = mrqa["train"]["test"]
+mrqa["train"] = mrqa["train"]["train"]
+
 
 # Even though tha dataset contains the tokenized versions of both questions and contexts, it is better to use the distilbert's own pretrained tokenizer
 tokenizer = AutoTokenizer.from_pretrained("distilbert/distilbert-base-uncased")
@@ -68,8 +72,12 @@ tokenized_mrqa = mrqa.map(preprocess_function, batched=True, remove_columns=mrqa
 # Saving the tokenized contexts and answers to json files
 train = tokenized_mrqa["train"].to_dict()
 test = tokenized_mrqa["test"].to_dict()
+val = tokenized_mrqa["val"].to_dict()
+
 
 with open("train.json", "w") as f:
     json.dump(train, f)
 with open("test.json", "w") as f:
     json.dump(test, f)
+with open("val.json", "w") as f:
+    json.dump(val, f)
