@@ -4,6 +4,7 @@ import json
 
 # The MRQA dataset is included in huggingface's datasets library, so we just have to load it
 mrqa = load_dataset("mrqa", split="train[:20%]")
+# Creating the train-test-validation split
 mrqa = mrqa.train_test_split(test_size=0.2)
 mrqa["train"] = mrqa["train"].train_test_split(test_size=0.2)
 mrqa["val"] = mrqa["train"]["test"]
