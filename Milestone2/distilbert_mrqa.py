@@ -3,6 +3,7 @@ from datasets import Dataset
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering, TrainingArguments, Trainer
 from transformers import TrainerCallback
 from evaluate import load
+import wandb
 
 # The MRQA dataset is included in huggingface's datasets library, so we just have to load it
 mrqa = load_dataset("mrqa", split="train[:20%]")
@@ -70,6 +71,7 @@ def preprocess_function(examples):
     inputs["end_positions"] = end_positions
     return inputs
 
+
 tokenized_mrqa = mrqa.map(preprocess_function, batched=True, remove_columns=mrqa["train"].column_names)
 
 # Saving the tokenized contexts and answers to json files
@@ -99,7 +101,7 @@ training_args = TrainingArguments(
     logging_steps=10,
     save_total_limit=2,    # Limit checkpoints to avoid filling up disk
     load_best_model_at_end=True,
-    metric_for_best_model="eval_loss" 
+    metric_for_best_model="eval_loss"
 )
 
 f1_metric = load("f1")
@@ -141,7 +143,9 @@ trainer = Trainer(
     compute_metrics=compute_metrics
 )
 
+wandb.init(project="distilbert-train-eval", entity='distilbert-train-eval')
 trainer.train()
+wandb.finish()
 
 eval_results = trainer.evaluate()
 print(f"Validation Results: {eval_results}")
