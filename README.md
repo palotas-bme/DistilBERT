@@ -32,6 +32,7 @@ The files required for submission for Milestone 2 can be found in the Milestone 
 - Dockerfile can be used to build the container
 - requirements.txt contains the appropriate versions of the libraries needed to run the preprocessing script
 - main.py loads and preprocesses the dataset for training and testing the model, and runs the finetuning
+- runnung the docker image will print the result of finatuning and evaluation
 
 ## Build
 
