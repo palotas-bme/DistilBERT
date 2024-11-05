@@ -119,6 +119,13 @@ def preprocess_validation_examples(examples):
     return inputs
 
 
+tokenized_mrqa = mrqa.map(preprocess_training_examples, batched=True, remove_columns=mrqa["train"].column_names)
+tokenized_mrqa.set_format(type="torch")
+
+# Tokenizing evaluation dataset
+tokenized_eval = mrqa["test"].map(preprocess_validation_examples, batched=True, remove_columns=mrqa["test"].column_names)
+tokenized_eval.set_format(type="torch")
+
 # Defining data collator
 data_collator = DefaultDataCollator()
 
@@ -167,8 +174,8 @@ def compute_metrics(start_logits, end_logits, features, examples):
             end_logit = end_logits[feature_index]
             offsets = features[feature_index]["offset_mapping"]
 
-            start_indexes = np.argsort(start_logit)[-1 : -n_best - 1 : -1].tolist()
-            end_indexes = np.argsort(end_logit)[-1 : -n_best - 1 : -1].tolist()
+            start_indexes = np.argsort(start_logit)[-1: -n_best - 1: -1].tolist()
+            end_indexes = np.argsort(end_logit)[-1: -n_best - 1: -1].tolist()
             for start_index in start_indexes:
                 for end_index in end_indexes:
                     # Skip answers that are not fully in the context
@@ -182,7 +189,7 @@ def compute_metrics(start_logits, end_logits, features, examples):
                         continue
 
                     answer = {
-                        "text": context[offsets[start_index][0] : offsets[end_index][1]],
+                        "text": context[offsets[start_index][0]: offsets[end_index][1]],
                         "logit_score": start_logit[start_index] + end_logit[end_index],
                     }
                     answers.append(answer)
@@ -197,8 +204,8 @@ def compute_metrics(start_logits, end_logits, features, examples):
             predicted_answers.append({"id": example_id, "prediction_text": ""})
 
     theoretical_answers = [
-    {"id": ex["qid"], "answers": [{"text": ans, "answer_start": 0} for ans in ex["answers"]]}
-    for ex in examples]
+        {"id": ex["qid"], "answers": [{"text": ans, "answer_start": 0} for ans in ex["answers"]]}
+        for ex in examples]
     return metric.compute(predictions=predicted_answers, references=theoretical_answers)
 
 
@@ -232,6 +239,7 @@ def eval_function(tokenized_eval, batch_size=64):
     end_logits = np.concatenate(all_end_logits, axis=0)
 
     return compute_metrics(start_logits, end_logits, tokenized_eval, mrqa["test"])
+
 
 # Calculating evaluation metrics before further finetuning
 pre_training_metrics = eval_function(tokenized_eval)
@@ -278,7 +286,6 @@ wandb_entity = input("Wandb entity: ")
 wandb.init(project=wandb_project, entity=wandb_entity)
 trainer.train()
 wandb.finish()
-
 
 
 post_training_metrics = eval_function(tokenized_eval)
