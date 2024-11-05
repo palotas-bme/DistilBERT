@@ -233,6 +233,10 @@ def eval_function(tokenized_eval, batch_size=64):
 
     return compute_metrics(start_logits, end_logits, tokenized_eval, mrqa["test"])
 
+# Calculating evaluation metrics before further finetuning
+pre_training_metrics = eval_function(tokenized_eval)
+print(f"Exact match before finetuning: {pre_training_metrics['exact_match']}\nF1 score before finetuning: {pre_training_metrics['f1']}")
+
 # Defining training parameters
 output_dir_name = "trial_run_local"
 
@@ -275,6 +279,7 @@ wandb.init(project=wandb_project, entity=wandb_entity)
 trainer.train()
 wandb.finish()
 
-post_training_metrics = eval_function(tokenized_eval)
 
-trainer.save_model("./best_model")
+
+post_training_metrics = eval_function(tokenized_eval)
+print(f"Exact match after finetuning: {post_training_metrics['exact_match']}\nF1 score after finetuning: {post_training_metrics['f1']}")
