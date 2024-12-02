@@ -109,6 +109,7 @@ class QuestionAnswerer():
     
     # Retrieving context to a question
     def _get_context(self, question):
+        #TODO - finishing this function to fetch context to the question
         contexts = [{}]
         return contexts
 
