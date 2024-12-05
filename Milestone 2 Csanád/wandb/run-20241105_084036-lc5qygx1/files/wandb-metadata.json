@@ -1,0 +1,42 @@
+{
+  "os": "Windows-10-10.0.26100-SP0",
+  "python": "3.11.8",
+  "startedAt": "2024-11-05T07:40:36.895600Z",
+  "program": "c:\\Users\\CSANADANSYS\\Desktop\\melytanulas\\nagyhazi\\DistilBERT\\Milestone 2 Csanád\\mrqa_test_distilbert.ipynb",
+  "git": {
+    "remote": "https://github.com/palotas-bme/DistilBERT.git",
+    "commit": "0e4697a6c2a9f8f35f0441b656a4d3d243c02cd1"
+  },
+  "email": "csanad00058@gmail.com",
+  "root": "c:\\Users\\CSANADANSYS\\Desktop\\melytanulas\\nagyhazi\\DistilBERT\\Milestone 2 Csanád",
+  "host": "Csanadlaptop",
+  "username": "CSANADANSYS",
+  "executable": "c:\\Users\\CSANADANSYS\\anaconda3\\python.exe",
+  "codePathLocal": "mrqa_test_distilbert.ipynb",
+  "cpu_count": 4,
+  "cpu_count_logical": 8,
+  "gpu": "NVIDIA GeForce GTX 1650",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "510735151104",
+      "used": "441440776192"
+    }
+  },
+  "memory": {
+    "total": "8464355328"
+  },
+  "cpu": {
+    "count": 4,
+    "countLogical": 8
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce GTX 1650",
+      "memoryTotal": "4294967296",
+      "cudaCores": 1024,
+      "architecture": "Turing"
+    }
+  ],
+  "cudaVersion": "12.6"
+}

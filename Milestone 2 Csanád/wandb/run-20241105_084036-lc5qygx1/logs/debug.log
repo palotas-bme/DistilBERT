@@ -1,0 +1,188 @@
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Current SDK version is 0.18.5
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Configure stats pid to 26608
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Loading settings from C:\Users\CSANADANSYS\.config\wandb\settings
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Loading settings from c:\Users\CSANADANSYS\Desktop\melytanulas\nagyhazi\DistilBERT\Milestone 2 Csanád\wandb\settings
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Applying setup settings: {'mode': None, '_disable_service': None}
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_init.py:_log_setup():534] Logging user logs to c:\Users\CSANADANSYS\Desktop\melytanulas\nagyhazi\DistilBERT\Milestone 2 Csanád\wandb\run-20241105_084036-lc5qygx1\logs\debug.log
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_init.py:_log_setup():535] Logging internal logs to c:\Users\CSANADANSYS\Desktop\melytanulas\nagyhazi\DistilBERT\Milestone 2 Csanád\wandb\run-20241105_084036-lc5qygx1\logs\debug-internal.log
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_init.py:_jupyter_setup():480] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x000002CB5375D810>
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_init.py:init():621] calling init triggers
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_init.py:init():628] wandb.init called with sweep_config: {}
+config: {}
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_init.py:init():671] starting backend
+2024-11-05 08:40:36,877 INFO    MainThread:26608 [wandb_init.py:init():675] sending inform_init request
+2024-11-05 08:40:36,891 INFO    MainThread:26608 [backend.py:_multiprocessing_setup():104] multiprocessing start_methods=spawn, using: spawn
+2024-11-05 08:40:36,895 INFO    MainThread:26608 [wandb_init.py:init():688] backend started and connected
+2024-11-05 08:40:36,935 INFO    MainThread:26608 [wandb_run.py:_label_probe_notebook():1342] probe notebook
+2024-11-05 08:40:36,937 INFO    MainThread:26608 [wandb_init.py:init():783] updated telemetry
+2024-11-05 08:40:37,051 INFO    MainThread:26608 [wandb_init.py:init():816] communicating run to backend with 90.0 second timeout
+2024-11-05 08:40:38,736 INFO    MainThread:26608 [wandb_init.py:init():867] starting run threads in backend
+2024-11-05 08:40:40,675 INFO    MainThread:26608 [wandb_run.py:_console_start():2463] atexit reg
+2024-11-05 08:40:40,675 INFO    MainThread:26608 [wandb_run.py:_redirect():2311] redirect: wrap_raw
+2024-11-05 08:40:40,675 INFO    MainThread:26608 [wandb_run.py:_redirect():2376] Wrapping output streams.
+2024-11-05 08:40:40,676 INFO    MainThread:26608 [wandb_run.py:_redirect():2401] Redirects installed.
+2024-11-05 08:40:40,689 INFO    MainThread:26608 [wandb_init.py:init():911] run started, returning control to user process
+2024-11-05 08:40:40,689 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:40:40,689 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:40:54,837 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:40:54,847 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:40:54,847 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:40:57,673 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:40:57,680 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:40:57,681 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:02,647 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:02,653 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:02,653 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:14,538 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:17,653 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:17,653 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:20,708 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:22,986 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:22,986 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:40,469 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:40,477 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:40,477 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:41,611 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:41,619 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:41,619 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:49,398 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:49,406 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:49,406 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:52,409 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:52,413 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:52,413 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:56,497 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:56,512 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:56,512 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:41:59,651 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:41:59,662 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:41:59,662 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:08,839 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:08,846 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:08,846 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:10,751 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:10,759 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:10,759 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:11,605 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:11,609 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:11,609 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:11,616 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:11,645 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:11,650 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:11,763 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:11,771 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:11,771 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:12,135 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:12,157 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:12,157 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:12,184 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:12,217 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:12,218 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:12,252 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:12,260 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:12,262 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:12,534 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:12,540 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:12,540 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:12,734 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:12,740 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:12,740 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:12,850 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:12,858 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:12,858 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:13,267 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:13,304 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:13,304 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:13,700 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:13,707 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:13,707 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:14,854 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:14,872 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:14,872 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:16,933 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:16,941 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:16,941 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:18,553 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:21,114 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:21,114 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:25,913 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:25,931 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:25,932 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:45,976 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:45,987 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:45,987 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:47,082 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:47,089 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:47,091 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:47,116 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:47,131 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:47,131 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:47,605 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:47,613 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:47,618 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:48,288 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:48,290 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:48,290 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:48,483 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:48,489 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:48,489 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:49,122 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:49,124 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:49,124 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:49,633 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:49,644 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:49,644 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:51,251 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:51,258 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:51,258 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:52,790 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:52,802 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:52,802 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:53,797 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:53,803 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:53,803 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:54,110 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:54,165 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:54,166 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:42:57,850 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:42:57,902 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:42:57,902 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:43:00,260 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:43:00,278 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:43:00,278 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:43:01,975 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:43:02,073 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:43:02,073 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:43:14,679 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:43:14,687 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:43:14,687 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:43:17,550 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:43:17,560 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:43:17,560 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:44:27,223 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:44:27,279 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:44:27,279 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:44:29,740 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:44:41,634 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:44:41,634 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:44:44,283 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:44:45,184 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:44:45,197 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:44:48,713 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:44:50,429 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:44:50,429 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:45:28,401 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:45:28,503 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:45:28,505 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:45:31,878 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:45:35,958 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 08:45:35,958 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
+2024-11-05 08:46:01,329 INFO    MainThread:26608 [wandb_init.py:_resume_backend():450] resuming backend
+2024-11-05 08:46:04,165 INFO    MainThread:26608 [wandb_run.py:_config_callback():1390] config_cb None None {'peft_config': {'default': {'peft_type': <PeftType.LORA: 'LORA'>, 'auto_mapping': None, 'base_model_name_or_path': 'distilbert/distilbert-base-uncased-distilled-squad', 'revision': None, 'task_type': 'QUESTION_ANS', 'inference_mode': False, 'r': 2, 'target_modules': ['q_lin', 'k_lin', 'v_lin', 'ffn.lin1', 'ffn.lin2', 'attention.out_proj'], 'lora_alpha': 6, 'lora_dropout': 0.15, 'fan_in_fan_out': False, 'bias': 'none', 'modules_to_save': None, 'init_lora_weights': True, 'layers_to_transform': None, 'layers_pattern': None}}, 'vocab_size': 30522, 'max_position_embeddings': 512, 'sinusoidal_pos_embds': False, 'n_layers': 6, 'n_heads': 12, 'dim': 768, 'hidden_dim': 3072, 'dropout': 0.1, 'attention_dropout': 0.1, 'activation': 'gelu', 'initializer_range': 0.02, 'qa_dropout': 0.1, 'seq_classif_dropout': 0.2, 'return_dict': True, 'output_hidden_states': False, 'output_attentions': False, 'torchscript': False, 'torch_dtype': None, 'use_bfloat16': False, 'tf_legacy_loss': False, 'pruned_heads': {}, 'tie_word_embeddings': True, 'chunk_size_feed_forward': 0, 'is_encoder_decoder': False, 'is_decoder': False, 'cross_attention_hidden_size': None, 'add_cross_attention': False, 'tie_encoder_decoder': False, 'max_length': 20, 'min_length': 0, 'do_sample': False, 'early_stopping': False, 'num_beams': 1, 'num_beam_groups': 1, 'diversity_penalty': 0.0, 'temperature': 1.0, 'top_k': 50, 'top_p': 1.0, 'typical_p': 1.0, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'no_repeat_ngram_size': 0, 'encoder_no_repeat_ngram_size': 0, 'bad_words_ids': None, 'num_return_sequences': 1, 'output_scores': False, 'return_dict_in_generate': False, 'forced_bos_token_id': None, 'forced_eos_token_id': None, 'remove_invalid_values': False, 'exponential_decay_length_penalty': None, 'suppress_tokens': None, 'begin_suppress_tokens': None, 'architectures': ['DistilBertForQuestionAnswering'], 'finetuning_task': None, 'id2label': {0: 'LABEL_0', 1: 'LABEL_1'}, 'label2id': {'LABEL_0': 0, 'LABEL_1': 1}, 'tokenizer_class': None, 'prefix': None, 'bos_token_id': None, 'pad_token_id': 0, 'eos_token_id': None, 'sep_token_id': None, 'decoder_start_token_id': None, 'task_specific_params': None, 'problem_type': None, '_name_or_path': 'distilbert/distilbert-base-uncased-distilled-squad', '_attn_implementation_autoset': True, 'transformers_version': '4.46.1', 'model_type': 'distilbert', 'tie_weights_': True, 'quantization_config': {'quant_method': 'BITS_AND_BYTES', '_load_in_8bit': False, '_load_in_4bit': True, 'llm_int8_threshold': 6.0, 'llm_int8_skip_modules': None, 'llm_int8_enable_fp32_cpu_offload': False, 'llm_int8_has_fp16_weight': False, 'bnb_4bit_quant_type': 'nf4', 'bnb_4bit_use_double_quant': False, 'bnb_4bit_compute_dtype': 'float16', 'bnb_4bit_quant_storage': 'uint8', 'load_in_4bit': True, 'load_in_8bit': False}, 'output_dir': 'trial_run_local', 'overwrite_output_dir': False, 'do_train': False, 'do_eval': True, 'do_predict': False, 'eval_strategy': 'steps', 'prediction_loss_only': False, 'per_device_train_batch_size': 16, 'per_device_eval_batch_size': 16, 'per_gpu_train_batch_size': None, 'per_gpu_eval_batch_size': None, 'gradient_accumulation_steps': 1, 'eval_accumulation_steps': None, 'eval_delay': 0, 'torch_empty_cache_steps': None, 'learning_rate': 2e-05, 'weight_decay': 0.01, 'adam_beta1': 0.9, 'adam_beta2': 0.999, 'adam_epsilon': 1e-08, 'max_grad_norm': 1.0, 'num_train_epochs': 3, 'max_steps': -1, 'lr_scheduler_type': 'linear', 'lr_scheduler_kwargs': {}, 'warmup_ratio': 0.0, 'warmup_steps': 0, 'log_level': 'passive', 'log_level_replica': 'warning', 'log_on_each_node': True, 'logging_dir': 'new_dir', 'logging_strategy': 'steps', 'logging_first_step': False, 'logging_steps': 500, 'logging_nan_inf_filter': True, 'save_strategy': 'steps', 'save_steps': 500, 'save_total_limit': None, 'save_safetensors': True, 'save_on_each_node': False, 'save_only_model': False, 'restore_callback_states_from_checkpoint': False, 'no_cuda': False, 'use_cpu': False, 'use_mps_device': False, 'seed': 42, 'data_seed': None, 'jit_mode_eval': False, 'use_ipex': False, 'bf16': False, 'fp16': False, 'fp16_opt_level': 'O1', 'half_precision_backend': 'auto', 'bf16_full_eval': False, 'fp16_full_eval': False, 'tf32': None, 'local_rank': 0, 'ddp_backend': None, 'tpu_num_cores': None, 'tpu_metrics_debug': False, 'debug': [], 'dataloader_drop_last': False, 'eval_steps': 500, 'dataloader_num_workers': 0, 'dataloader_prefetch_factor': None, 'past_index': -1, 'run_name': 'trial_run_local', 'disable_tqdm': False, 'remove_unused_columns': True, 'label_names': None, 'load_best_model_at_end': False, 'metric_for_best_model': None, 'greater_is_better': None, 'ignore_data_skip': False, 'fsdp': [], 'fsdp_min_num_params': 0, 'fsdp_config': {'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False}, 'fsdp_transformer_layer_cls_to_wrap': None, 'accelerator_config': {'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None}, 'deepspeed': None, 'label_smoothing_factor': 0.0, 'optim': 'adamw_torch', 'optim_args': None, 'adafactor': False, 'group_by_length': False, 'length_column_name': 'length', 'report_to': ['tensorboard', 'wandb'], 'ddp_find_unused_parameters': None, 'ddp_bucket_cap_mb': None, 'ddp_broadcast_buffers': None, 'dataloader_pin_memory': True, 'dataloader_persistent_workers': False, 'skip_memory_metrics': True, 'use_legacy_prediction_loop': False, 'push_to_hub': False, 'resume_from_checkpoint': None, 'hub_model_id': None, 'hub_strategy': 'every_save', 'hub_token': '<HUB_TOKEN>', 'hub_private_repo': False, 'hub_always_push': False, 'gradient_checkpointing': False, 'gradient_checkpointing_kwargs': None, 'include_inputs_for_metrics': False, 'include_for_metrics': [], 'eval_do_concat_batches': True, 'fp16_backend': 'auto', 'evaluation_strategy': None, 'push_to_hub_model_id': None, 'push_to_hub_organization': None, 'push_to_hub_token': '<PUSH_TO_HUB_TOKEN>', 'mp_parameters': '', 'auto_find_batch_size': False, 'full_determinism': False, 'torchdynamo': None, 'ray_scope': 'last', 'ddp_timeout': 1800, 'torch_compile': False, 'torch_compile_backend': None, 'torch_compile_mode': None, 'dispatch_batches': None, 'split_batches': None, 'include_tokens_per_second': False, 'include_num_input_tokens_seen': False, 'neftune_noise_alpha': None, 'optim_target_modules': None, 'batch_eval_metrics': False, 'eval_on_start': False, 'use_liger_kernel': False, 'eval_use_gather_object': False, 'dataset_text_field': 'text', 'packing': False, 'max_seq_length': 512, 'dataset_num_proc': None, 'dataset_batch_size': 1000, 'model_init_kwargs': None, 'dataset_kwargs': {}, 'eval_packing': None, 'num_of_sequences': 1024, 'chars_per_token': '<CHARS_PER_TOKEN>', 'use_liger': False}
+2024-11-05 08:46:04,222 INFO    MainThread:26608 [wandb_config.py:__setitem__():154] config set model/num_parameters = 66513412 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x000002CB7827D590>>
+2024-11-05 08:46:04,222 INFO    MainThread:26608 [wandb_run.py:_config_callback():1390] config_cb model/num_parameters 66513412 None
+2024-11-05 09:35:37,287 INFO    MainThread:26608 [jupyter.py:save_ipynb():387] not saving jupyter notebook
+2024-11-05 09:35:37,303 INFO    MainThread:26608 [wandb_init.py:_pause_backend():445] pausing backend
