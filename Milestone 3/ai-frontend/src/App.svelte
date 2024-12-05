@@ -9,7 +9,7 @@
         }
     }
 
-    let qas = [];
+    let qas = [new QA("What is this?", "This en example question to show the UI without the backend.", "There is no context. But something needs to be here.")];
     let question = '';
     let context;
 
