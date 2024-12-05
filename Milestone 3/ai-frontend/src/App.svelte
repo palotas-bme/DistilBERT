@@ -10,15 +10,28 @@
     }
 
     let qas = [];
-    let inputQuestion;
-    let inputContext;
+    let question = '';
+    let context;
 
-    function ask() {
 
-        // TODO Get answer form api
-        qas.push(new QA(inputQuestion, "I don't know", inputContext));
-        qas = qas;
-        inputQuestion = '';
+    async function ask() {
+        const response = await fetch('/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ question, context }),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch response from AI');
+        }
+
+        response.json().then((result) => {
+            qas.push(new QA(question, result.message, context));
+            qas = qas;
+            question = '';
+        });
     }
 </script>
 
@@ -33,9 +46,9 @@
             {/each}
         </div>
         <div class="question-container">
-            <input placeholder="Ask something" bind:value={inputQuestion} />
-            <button onclick={ask} disabled={inputQuestion == ""}>Ask</button>
-            <textarea placeholder="context" bind:value={inputContext}></textarea>
+            <input placeholder="Ask something" bind:value={question} />
+            <button onclick={ask} disabled={question == ''}>Ask</button>
+            <textarea placeholder="context" bind:value={context}></textarea>
         </div>
     </div>
 </main>
