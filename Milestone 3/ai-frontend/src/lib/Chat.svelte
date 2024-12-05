@@ -74,7 +74,7 @@
         mask:
             radial-gradient(100% 100% at var(--_p) 0, #0000 99%, #000 102%) var(--_p) 100% / var(--t) var(--t) no-repeat,
             linear-gradient(#000 0 0) padding-box;
-        background: linear-gradient(135deg, #3701ea, #75a5c1) border-box;
+        background: linear-gradient(135deg, #3607d4, #75a5c1) border-box;
         color: #fff;
     }
 
