@@ -84,6 +84,7 @@ class QuestionAnswerer():
 
     # Answering a question
     def answer_question(self, question, context):
+        # TODO add a method that reordes the answers based on the score
         if context:
             return self._answer_context(question, context)
 
@@ -122,7 +123,7 @@ class QuestionAnswerer():
                 predict_answer_tokens = inputs.input_ids[0, answer_start_index:answer_end_index + 1]
                 best_answer = self.tokenizer.decode(predict_answer_tokens)
             
-        return best_answer, best_score
+        return best_answer, best_score.item()
 
     # Splitting long contexts to shorter chunks
     def _chunk_context(self, context):
