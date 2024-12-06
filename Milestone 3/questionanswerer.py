@@ -93,12 +93,12 @@ class QuestionAnswerer():
     # Answering a question when there is a context provided
     def _answer_context(self, question, context):
         answer, score = self._answer(question, context)
-        output = {
+        output = [{
                 "text": None,
                 "link": None,
                 "answer": answer,
                 "score": score
-                }
+                }]
         return output
     
     # Extracting answer from question
