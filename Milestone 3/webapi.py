@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from pyexpat import model
 import uvicorn
 from questionanswerer import QuestionAnswerer
 
@@ -23,10 +24,18 @@ class Question(BaseModel):
     question: str
     context: str | None = None
 
+class Answer(BaseModel):
+    context: str
+    context_link: str
+    answer: str
+
 @app.post("/ask")
 def answer(q: Question):
-    # return {"message": "DistillBERT question answerer"}
-    qa.answer_question(q.question, q.context)
+    model_answer = qa.answer_question(q.question, q.context)
+    print(model_answer)
+    print(len(model_answer))
+    answer = Answer(context=model_answer[0]["text"], context_link=model_answer[0]["link"], answer=model_answer[0]["answer"])
+    return answer
 
 
 app.mount("/", StaticFiles(directory="ai-frontend/dist", html=True), name="frontend")
