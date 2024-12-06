@@ -2,6 +2,7 @@
     export let question = '';
     export let answer = '';
     export let context = '';
+    export let link = '';
 
     const maxShownContext = 100;
 </script>
@@ -13,7 +14,16 @@
     </div>
 </div>
 <div class="context-container">
-    {#if context.length < maxShownContext}
+    {#if link != ''}
+        <details>
+            <summary>
+                Context: {link}
+            </summary>
+            <p class="full-context">
+                {context}
+            </p>
+        </details>
+    {:else if context.length < maxShownContext}
         Context: {context || 'none'}
     {:else}
         <details>

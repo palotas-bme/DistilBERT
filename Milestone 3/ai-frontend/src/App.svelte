@@ -2,10 +2,11 @@
     import Chat from './lib/Chat.svelte';
 
     class QA {
-        constructor(question, answer, context) {
+        constructor(question, answer, context, link) {
             this.question = question;
             this.answer = answer;
             this.context = context;
+            this.link = link;
         }
     }
 
@@ -27,7 +28,7 @@
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ question, context }),
+            body: JSON.stringify({ question: orig_question, context: context}),
         });
 
         if (!response.ok) {
@@ -35,7 +36,7 @@
         }
 
         response.json().then((result) => {
-            qas.push(new QA(orig_question, result.answer, result.context));
+            qas.push(new QA(orig_question, result.answer, result.context, result.link));
             qas = qas;
             const container = document.querySelector('.chat-container');
             setTimeout(() => {
@@ -58,12 +59,12 @@
         <h1>DistilBERT question answering</h1>
         <div class="chat-container">
             {#each qas as q}
-                <Chat question={q.question} answer={q.answer} context={q.context} />
+                <Chat question={q.question} answer={q.answer} context={q.context} link={q.link} />
             {/each}
         </div>
         <div class="question-container">
             <input placeholder="Ask something" bind:value={question} />
-            <button onclick={ask} disabled={question == ''}>Ask</button>
+            <button class="ask-button" onclick={ask} disabled={question == ''}>Ask</button>
             <textarea placeholder="context" bind:value={context}></textarea>
         </div>
     </div>
@@ -84,5 +85,9 @@
         padding: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .ask-button:disabled {
+        cursor: initial;
     }
 </style>

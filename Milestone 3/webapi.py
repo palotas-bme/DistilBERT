@@ -26,7 +26,7 @@ class Question(BaseModel):
 
 class Answer(BaseModel):
     context: str
-    context_link: str
+    link: str
     answer: str
 
 @app.post("/ask")
@@ -34,8 +34,8 @@ def answer(q: Question):
     model_answer = qa.answer_question(q.question, q.context)
     print(model_answer)
     print(len(model_answer))
-    answer = Answer(context=model_answer[0]["text"], context_link=model_answer[0]["link"], answer=model_answer[0]["answer"])
-    return answer
+    a = Answer(context=model_answer[0]["text"], link=model_answer[0]["link"], answer=model_answer[0]["answer"])
+    return a
 
 
 app.mount("/", StaticFiles(directory="ai-frontend/dist", html=True), name="frontend")
