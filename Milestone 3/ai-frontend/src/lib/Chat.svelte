@@ -1,7 +1,7 @@
 <script>
     export let question = '';
     export let answer = '';
-    export let context = '';
+    export let text = '';
     export let link = '';
 
     const maxShownContext = 100;
@@ -20,18 +20,18 @@
                 Context: {link}
             </summary>
             <p class="full-context">
-                {context}
+                {text}
             </p>
         </details>
-    {:else if context.length < maxShownContext}
-        Context: {context || 'none'}
+    {:else if text.length < maxShownContext}
+        Context: {text || 'none'}
     {:else}
         <details>
             <summary>
-                Context: {context.substring(0, maxShownContext)}...
+                Context: {text.substring(0, maxShownContext)}...
             </summary>
             <p class="full-context">
-                {context}
+                {text}
             </p>
         </details>
     {/if}
