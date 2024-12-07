@@ -3,10 +3,10 @@
     import Loading from './lib/Loading.svelte';
 
     class QA {
-        constructor(question, answer, context, link) {
+        constructor(question, answer, text, link) {
             this.question = question;
             this.answer = answer;
-            this.context = context;
+            this.text = text;
             this.link = link;
         }
     }
@@ -19,7 +19,7 @@
         ),
     ];
     let question = '';
-    let context;
+    let text;
     let loading = false;
 
     async function ask() {
@@ -31,19 +31,19 @@
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ question: orig_question, context: context }),
+            body: JSON.stringify({ question: orig_question, text: text }),
         });
 
         if (response.ok) {
             response.json().then((result) => {
                 result.forEach(answer => {
-                    qas.push(new QA(orig_question, answer.answer, answer.context, answer.link));
+                    qas.push(new QA(orig_question, answer.answer, answer.text, answer.link));
                 });
                 
                 qas = qas;
             });
         } else {
-            qas.push(new QA(orig_question, '⚠Unable to answer the question, please see the logs for details.⚠', context));
+            qas.push(new QA(orig_question, '⚠Unable to answer the question, please see the logs for details.⚠', text));
             qas = qas;
             response.text().then(console.log);
         }
@@ -54,7 +54,7 @@
         }, 50);
 
         // For testing without backend
-        // qas.push(new QA(question, "I don't know", context));
+        // qas.push(new QA(question, "I don't know", text));
         // qas = qas;
         // const container = document.querySelector('.chat-container');
         // setTimeout(() => {
@@ -68,7 +68,7 @@
         <h1>DistilBERT question answering</h1>
         <div class="chat-container">
             {#each qas as q}
-                <Chat question={q.question} answer={q.answer} context={q.context} link={q.link} />
+                <Chat question={q.question} answer={q.answer} text={q.text} link={q.link} />
             {/each}
         </div>
         <div class="question-container">
@@ -78,7 +78,7 @@
             {:else}
                 <button class="ask-button" onclick={ask} disabled={question == ''}>Ask</button>
             {/if}
-            <textarea placeholder="context" bind:value={context}></textarea>
+            <textarea placeholder="context" bind:value={text}></textarea>
         </div>
     </div>
 </main>

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from ast import mod
 import uvicorn
 from questionanswerer import QuestionAnswerer
 
@@ -25,9 +24,10 @@ class Question(BaseModel):
     context: str | None = None
 
 class Answer(BaseModel):
-    context: str
+    text: str | None
     link: str
     answer: str
+    score: float | None = None
 
 @app.post("/ask")
 def answer(q: Question):
@@ -37,11 +37,11 @@ def answer(q: Question):
     # assert len(model_answer) > 0
     if len(model_answer) == 0:
         # https://users.ece.cmu.edu/~gamvrosi/thelastq.html
-        return [Answer(context="", link="", answer="INSUFFICIENT DATA FOR MEANINGFUL ANSWER")]
+        return [Answer(text="", link="", answer="INSUFFICIENT DATA FOR MEANINGFUL ANSWER")]
 
     a = []
     for ans in model_answer:
-        a.append(Answer(context=ans["text"], link=ans["link"], answer=ans["answer"]))
+        a.append(Answer.model_validate(ans))
     return a
 
 
