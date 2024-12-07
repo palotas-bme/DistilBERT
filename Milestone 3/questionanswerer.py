@@ -84,6 +84,7 @@ class QuestionAnswerer():
 
     # Answering a question
     def answer_question(self, question, context):
+        # TODO add a method that reordes the answers based on the score
         if context:
             return self._answer_context(question, context)
 
@@ -91,21 +92,18 @@ class QuestionAnswerer():
             return self._answer_nocontext(question)
         
     # Answering a question when there is a context provided
-    def __answer_context(self, question, context):
-        inputs = self.tokenizer(question, context, max_length=384,
-                                return_tensors="pt").to(self.device)
-        with torch.no_grad():
-            outputs = self.model(**inputs)
-
-        answer_start_index = torch.argmax(outputs.start_logits).cpu().numpy()
-        answer_end_index = torch.argmax(outputs.end_logits).cpu().numpy()
-
-        predict_answer_tokens = inputs.input_ids[0, answer_start_index : answer_end_index]
-        answer = self.tokenizer.decode(predict_answer_tokens)
-
-        return answer
-    
     def _answer_context(self, question, context):
+        answer, score = self._answer(question, context)
+        output = [{
+                "text": None,
+                "link": None,
+                "answer": answer,
+                "score": score
+                }]
+        return output
+    
+    # Extracting answer from question
+    def _answer(self, question, context):
         chunks = self._chunk_context(context)
         
         best_answer = ""
@@ -125,7 +123,7 @@ class QuestionAnswerer():
                 predict_answer_tokens = inputs.input_ids[0, answer_start_index:answer_end_index + 1]
                 best_answer = self.tokenizer.decode(predict_answer_tokens)
             
-        return best_answer
+        return best_answer, best_score.item()
 
     # Splitting long contexts to shorter chunks
     def _chunk_context(self, context):
@@ -139,7 +137,9 @@ class QuestionAnswerer():
     def _answer_nocontext(self, question):
         results = self._get_context(question)
         for result in results:
-            result["answer"] = self._answer_context(question, result["text"])
+            answer, score = self._answer(question, result["text"])
+            result["answer"] = answer
+            result["score"] = score
         
         return results
     
