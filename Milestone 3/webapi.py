@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from pyexpat import model
+from ast import mod
 import uvicorn
 from questionanswerer import QuestionAnswerer
 
@@ -34,7 +34,14 @@ def answer(q: Question):
     model_answer = qa.answer_question(q.question, q.context)
     print(model_answer)
     print(len(model_answer))
-    a = Answer(context=model_answer[0]["text"], link=model_answer[0]["link"], answer=model_answer[0]["answer"])
+    # assert len(model_answer) > 0
+    if len(model_answer) == 0:
+        # https://users.ece.cmu.edu/~gamvrosi/thelastq.html
+        return [Answer(context="", link="", answer="INSUFFICIENT DATA FOR MEANINGFUL ANSWER")]
+
+    a = []
+    for ans in model_answer:
+        a.append(Answer(context=ans["text"], link=ans["link"], answer=ans["answer"]))
     return a
 
 

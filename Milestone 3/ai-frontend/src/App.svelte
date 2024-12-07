@@ -1,5 +1,6 @@
 <script>
     import Chat from './lib/Chat.svelte';
+    import Loading from './lib/Loading.svelte';
 
     class QA {
         constructor(question, answer, context, link) {
@@ -19,8 +20,10 @@
     ];
     let question = '';
     let context;
+    let loading = false;
 
     async function ask() {
+        loading = true;
         const orig_question = question;
         question = '';
         const response = await fetch('/ask', {
@@ -28,21 +31,27 @@
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ question: orig_question, context: context}),
+            body: JSON.stringify({ question: orig_question, context: context }),
         });
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch response from AI');
-        }
-
-        response.json().then((result) => {
-            qas.push(new QA(orig_question, result.answer, result.context, result.link));
+        if (response.ok) {
+            response.json().then((result) => {
+                result.forEach(answer => {
+                    qas.push(new QA(orig_question, answer.answer, answer.context, answer.link));
+                });
+                
+                qas = qas;
+            });
+        } else {
+            qas.push(new QA(orig_question, '⚠Unable to answer the question, please see the logs for details.⚠', context));
             qas = qas;
-            const container = document.querySelector('.chat-container');
-            setTimeout(() => {
-                container.scrollTop = container.scrollHeight;
-            }, 50);
-        });
+            response.text().then(console.log);
+        }
+        loading = false;
+        const container = document.querySelector('.chat-container');
+        setTimeout(() => {
+            container.scrollTop = container.scrollHeight;
+        }, 50);
 
         // For testing without backend
         // qas.push(new QA(question, "I don't know", context));
@@ -64,7 +73,11 @@
         </div>
         <div class="question-container">
             <input placeholder="Ask something" bind:value={question} />
-            <button class="ask-button" onclick={ask} disabled={question == ''}>Ask</button>
+            {#if loading}
+                <Loading />
+            {:else}
+                <button class="ask-button" onclick={ask} disabled={question == ''}>Ask</button>
+            {/if}
             <textarea placeholder="context" bind:value={context}></textarea>
         </div>
     </div>
