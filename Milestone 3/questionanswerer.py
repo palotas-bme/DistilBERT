@@ -141,7 +141,7 @@ class QuestionAnswerer():
             result["answer"] = answer
             result["score"] = score
         
-        return results
+        return sorted(results, key=lambda x: x["score"], reverse=True)
     
     # Retrieving context to a question
     def _get_context(self, question):
