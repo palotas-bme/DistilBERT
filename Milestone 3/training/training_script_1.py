@@ -101,8 +101,7 @@ trainer = SFTTrainer(
     eval_dataset=tokenized_mrqa["val"],
     tokenizer=tokenizer,
     data_collator=data_collator,
-    peft_config=peft_config,
-    compute_metrics=compute_metrics
+    peft_config=peft_config
 )
 
 # Training the model
