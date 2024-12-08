@@ -5,7 +5,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="DistilBERT question answerer", description="""
 DistilBERT question answerer Deeplearning assignment
                                      """)
-    parser.add_argument("-m", "--model_path")
+    parser.add_argument("-m", "--model_path", default="training/best models/2024-12-08_22-18-27_best_model")
     args = parser.parse_args()
 
     # We import everything after parsing the arguments so when the help is called, we don't have to wait for the imports. They can take some time.
