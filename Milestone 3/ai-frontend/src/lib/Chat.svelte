@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="context-container">
-    {#if link != ''}
+    {#if link ?? '' != ''}
         <details>
             <summary>
                 Context: {link}
@@ -42,16 +42,17 @@
 <div class="answer-container">
     <div class="bubble left">
         A: {answer}
+        {#if score != null}
+            <div class="score">Score: {score}</div>
+        {/if}
     </div>
-    <AnswerRating {question} {answer} {text} {link} {score} />
+    {#if score != null}
+        <AnswerRating {question} {answer} {text} {link} {score} />
+    {/if}
 </div>
 <div class="empty"></div>
 
 <style>
-    .question-container {
-    }
-    .answer-container {
-    }
     .context-container {
         grid-row: span 2;
     }
@@ -65,6 +66,9 @@
         .full-context {
             background-color: #fafafa;
         }
+    }
+    .score {
+        font-size: 0.6em;
     }
 
     .bubble {

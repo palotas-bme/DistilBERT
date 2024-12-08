@@ -17,6 +17,8 @@
             'What is this?',
             'This en example question to show the UI without the backend.',
             'There is no context. But something needs to be here.',
+            null,
+            42
         ),
     ];
     let question = '';
@@ -50,6 +52,7 @@
         }
         loading = false;
         const container = document.querySelector('.chat-container');
+        // If we scroll down immediately the we we scroll before the answer is rendered.
         setTimeout(() => {
             container.scrollTop = container.scrollHeight;
         }, 50);
@@ -69,7 +72,7 @@
         <h1>DistilBERT question answering</h1>
         <div class="chat-container">
             {#each qas as q}
-                <Chat question={q.question} answer={q.answer} text={q.text} link={q.link} />
+                <Chat question={q.question} answer={q.answer} text={q.text} link={q.link} score={q.score} />
             {/each}
         </div>
         <div class="question-container">
