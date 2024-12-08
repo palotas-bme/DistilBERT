@@ -112,7 +112,18 @@ trainer.train()
 wandb.finish()
 
 
-post_training_metrics = eval_function(tokenized_eval)
+post_training_metrics = eval_function(tokenized_eval, model, mrqa["test"])
+best_ckpt_path = trainer.state.best_model_checkpoint
+
+eval_logs = {
+    "pre": pre_training_metrics,
+    "post": post_training_metrics,
+    "best model": best_ckpt_path
+}
+
+with open("eval_logs", "w") as file:
+    json.dump(eval_logs, file)
+
 print(f"Exact match after finetuning: {post_training_metrics['exact_match']}\nF1 score after finetuning: {post_training_metrics['f1']}")
 
 
