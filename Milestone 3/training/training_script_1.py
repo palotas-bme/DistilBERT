@@ -28,11 +28,15 @@ mrqa["train"] = mrqa["train"]["train"]
 # Loading the tokenizer
 tokenizer = AutoTokenizer.from_pretrained("distilbert/distilbert-base-uncased-distilled-squad")
 
-tokenized_mrqa = mrqa.map(preprocess_training_examples, batched=True, remove_columns=mrqa["train"].column_names)
+tokenized_mrqa = mrqa.map(preprocess_training_examples, batched=True, 
+                          remove_columns=mrqa["train"].column_names,
+                          fn_kwargs={"tokenizer": tokenizer})
 tokenized_mrqa.set_format(type="torch")
 
 # Tokenizing evaluation dataset
-tokenized_eval = mrqa["test"].map(preprocess_validation_examples, batched=True, remove_columns=mrqa["test"].column_names)
+tokenized_eval = mrqa["test"].map(preprocess_validation_examples, batched=True, 
+                                  remove_columns=mrqa["test"].column_names,
+                                  fn_kwargs={"tokenizer": tokenizer})
 tokenized_eval.set_format(type="torch")
 
 # Defining data collator
@@ -71,7 +75,7 @@ output_dir_name = "trial_run_local"
 peft_config = LoraConfig(
     lora_alpha=6,
     lora_dropout=0.15,
-    r=2,
+    r=4,
     bias="none",
     task_type="QUESTION_ANS",
     target_modules=["q_lin", "k_lin", "v_lin", "ffn.lin1", "ffn.lin2", "attention.out_proj"])
