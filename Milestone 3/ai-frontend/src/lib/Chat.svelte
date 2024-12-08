@@ -1,4 +1,6 @@
 <script>
+    import AnswerRating from "./AnswerRating.svelte";
+
     export let question = '';
     export let answer = '';
     export let text = '';
@@ -40,6 +42,7 @@
     <div class="bubble left">
         A: {answer}
     </div>
+    <AnswerRating question={question} answer={answer} text={text} />
 </div>
 <div class="empty"></div>
 
