@@ -7,6 +7,7 @@ from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 import nltk
 from utils import removeduplicates
+from peft import LoraConfig, PeftModel
 
 
 class ContextFetcher():
@@ -153,7 +154,12 @@ class QuestionAnswerer():
 
     # Loading preferred pretrained model 
     def load_model(self, path):
-        self.model = DistilBertForQuestionAnswering.from_pretrained(path).to(self.device)
+        # If the model was already pretrained we load both the base model and the lower-rank weight matrices
+        if not path == "distilbert/distilbert-base-uncased-distilled-squad":
+            base_model = DistilBertForQuestionAnswering.from_pretrained("distilbert/distilbert-base-uncased-distilled-squad").to(self.device)
+            self.model = PeftModel.from_pretrained(base_model, path).to(self.device)
+        else:
+            self.model = DistilBertForQuestionAnswering.from_pretrained(path).to(self.device)
         self.model.eval()
 
     # Moving model to different device if neccesary
@@ -163,5 +169,5 @@ class QuestionAnswerer():
 
 
 if __name__ == "__main__":
-    qa = QuestionAnswerer()
-    qa.answer_question("Who is the king of Spain?", None)
+    qa = QuestionAnswerer(model_path='training/best models/2024-12-08_22-18-27_best_model')
+    print(qa.answer_question("Who is the king of Spain?", None)[0]["answer"])

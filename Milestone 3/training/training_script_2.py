@@ -123,7 +123,7 @@ eval_logs = {
     "best model": best_ckpt_path
 }
 
-with open("eval_logs", "w") as file:
+with open("eval_logs.json", "w") as file:
     json.dump(eval_logs, file)
 
 print(f"Exact match after finetuning: {post_training_metrics['exact_match']}\nF1 score after finetuning: {post_training_metrics['f1']}")
