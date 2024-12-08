@@ -5,7 +5,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="DistilBERT question answerer", description="""
 DistilBERT question answerer Deeplearning assignment
                                      """)
-    parser.add_argument("-t", "--tokenizer_path")
     parser.add_argument("-m", "--model_path")
     args = parser.parse_args()
 
@@ -71,5 +70,5 @@ DistilBERT question answerer Deeplearning assignment
     def read_root():
         return FileResponse('ai-frontend/dist/index.html')
 
-    qa = QuestionAnswerer(tokenizer_path=args.tokenizer_path, model_path=args.model_path)
+    qa = QuestionAnswerer(model_path=args.model_path)
     uvicorn.run(app, host="0.0.0.0", port=8000)
