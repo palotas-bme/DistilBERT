@@ -7,6 +7,13 @@
     function rate(e) {
         rating = e.target.value;
 		console.log(question, answer, text)
+        const response = fetch('/rate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify( {rating: Number.parseInt(rating), answer: { question: question, text: text, answer: answer }}),
+        });
     }
 </script>
 
