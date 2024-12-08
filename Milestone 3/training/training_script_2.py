@@ -85,6 +85,7 @@ training_args = TrainingArguments(
     output_dir=output_dir_name,
     eval_strategy="steps",
     eval_steps=2000,
+    save_steps=2000,
     learning_rate=2e-5,
     per_device_train_batch_size=64,
     per_device_eval_batch_size=64,
