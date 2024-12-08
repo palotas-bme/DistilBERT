@@ -1,0 +1,20 @@
+{"time":"2024-12-08T12:16:31.853547315Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-08T12:16:31.853571874Z","level":"INFO","msg":"created symlink","path":"/app2/Milestone 3/training/wandb/run-20241208_121631-ovlmr2xn/logs/debug-core.log"}
+{"time":"2024-12-08T12:16:31.955897686Z","level":"INFO","msg":"created new stream","id":"ovlmr2xn"}
+{"time":"2024-12-08T12:16:31.95593829Z","level":"INFO","msg":"stream: started","id":"ovlmr2xn"}
+{"time":"2024-12-08T12:16:31.956018186Z","level":"INFO","msg":"sender: started","stream_id":"ovlmr2xn"}
+{"time":"2024-12-08T12:16:31.956003452Z","level":"INFO","msg":"handler: started","stream_id":{"value":"ovlmr2xn"}}
+{"time":"2024-12-08T12:16:31.955996274Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ovlmr2xn"}}
+{"time":"2024-12-08T12:16:32.154130598Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-08T18:00:56.268411447Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-08T18:00:56.268998892Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-08T18:00:56.322991213Z","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2024-12-08T18:00:56.32301954Z","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2024-12-08T18:00:56.323025166Z","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-12-08T18:00:56.521588995Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-08T18:00:56.580293888Z","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2024-12-08T18:00:57.590867914Z","level":"INFO","msg":"stream: closing","id":"ovlmr2xn"}
+{"time":"2024-12-08T18:00:57.590895607Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"ovlmr2xn"}}
+{"time":"2024-12-08T18:00:57.590918114Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ovlmr2xn"}}
+{"time":"2024-12-08T18:00:57.590938205Z","level":"INFO","msg":"sender: closed","stream_id":"ovlmr2xn"}
+{"time":"2024-12-08T18:00:57.591024338Z","level":"INFO","msg":"stream: closed","id":"ovlmr2xn"}

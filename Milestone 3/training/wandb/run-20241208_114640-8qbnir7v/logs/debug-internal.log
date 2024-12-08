@@ -1,0 +1,20 @@
+{"time":"2024-12-08T11:46:40.140713142Z","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2024-12-08T11:46:40.140731428Z","level":"INFO","msg":"created symlink","path":"/app2/Milestone 3/training/wandb/run-20241208_114640-8qbnir7v/logs/debug-core.log"}
+{"time":"2024-12-08T11:46:40.242751941Z","level":"INFO","msg":"created new stream","id":"8qbnir7v"}
+{"time":"2024-12-08T11:46:40.242786083Z","level":"INFO","msg":"stream: started","id":"8qbnir7v"}
+{"time":"2024-12-08T11:46:40.242852825Z","level":"INFO","msg":"sender: started","stream_id":"8qbnir7v"}
+{"time":"2024-12-08T11:46:40.242816944Z","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"8qbnir7v"}}
+{"time":"2024-12-08T11:46:40.242891372Z","level":"INFO","msg":"handler: started","stream_id":{"value":"8qbnir7v"}}
+{"time":"2024-12-08T11:46:40.347554304Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2024-12-08T11:46:40.34759827Z","level":"ERROR","msg":"sender: upsertRun:","error":"failed to upsert bucket: returned error 404 Not Found: {\"errors\":[{\"message\":\"entity bme_deeepl_learning not found during upsertBucket\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2024-12-08T11:46:40.359343572Z","level":"INFO","msg":"stream: closing","id":"8qbnir7v"}
+{"time":"2024-12-08T11:46:40.359876453Z","level":"ERROR","msg":"sender: upsertConfig: RunRecord is nil"}
+{"time":"2024-12-08T11:46:40.359963903Z","level":"WARN","msg":"No requirements.txt found, not creating job artifact. See https://docs.wandb.ai/guides/launch/create-job"}
+{"time":"2024-12-08T11:46:40.359973734Z","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2024-12-08T11:46:40.417188715Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/graphql"}
+{"time":"2024-12-08T11:46:40.417236699Z","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: returned error 404 Not Found: {\"errors\":[{\"message\":\"entity bme_deeepl_learning not found during createRunFiles\",\"path\":[\"createRunFiles\"]}],\"data\":{\"createRunFiles\":null}}"}
+{"time":"2024-12-08T11:46:40.417723005Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-08T11:46:40.417824758Z","level":"INFO","msg":"handler: closed","stream_id":{"value":"8qbnir7v"}}
+{"time":"2024-12-08T11:46:40.417842801Z","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"8qbnir7v"}}
+{"time":"2024-12-08T11:46:40.417875595Z","level":"INFO","msg":"sender: closed","stream_id":"8qbnir7v"}
+{"time":"2024-12-08T11:46:40.417901786Z","level":"INFO","msg":"stream: closed","id":"8qbnir7v"}
