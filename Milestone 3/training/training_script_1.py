@@ -18,7 +18,7 @@ from torch.utils.data import DataLoader
 # Loading the dataset
 # The MRQA dataset is included in huggingface's datasets library, so we just have to load it
 # Loading dataset (smaller fraction than in the final becasue had to train on local GPU)
-mrqa = load_dataset("mrqa", split="train[:10%]")
+mrqa = load_dataset("mrqa", split="train[:20%]")
 # Creating the train-test-validation split
 mrqa = mrqa.train_test_split(test_size=0.2)
 mrqa["train"] = mrqa["train"].train_test_split(test_size=0.2)
@@ -54,7 +54,7 @@ bnb_config = BitsAndBytesConfig(
 peft_config = LoraConfig(
     lora_alpha=6,
     lora_dropout=0.15,
-    r=2,
+    r=6,
     bias="none",
     task_type="QUESTION_ANS",
     target_modules=["q_lin", "k_lin", "v_lin", "ffn.lin1", "ffn.lin2", "attention.out_proj"])
@@ -87,7 +87,7 @@ training_args = TrainingArguments(
     learning_rate=2e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
-    num_train_epochs=3,
+    num_train_epochs=10,
     weight_decay=0.01,
     logging_dir='new_dir',
     load_best_model_at_end=True,
