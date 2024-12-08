@@ -1,10 +1,11 @@
 <script>
-    import AnswerRating from "./AnswerRating.svelte";
+    import AnswerRating from './AnswerRating.svelte';
 
     export let question = '';
     export let answer = '';
     export let text = '';
     export let link = '';
+    export let score = null;
 
     const maxShownContext = 100;
 </script>
@@ -42,7 +43,7 @@
     <div class="bubble left">
         A: {answer}
     </div>
-    <AnswerRating question={question} answer={answer} text={text} />
+    <AnswerRating {question} {answer} {text} {link} {score} />
 </div>
 <div class="empty"></div>
 

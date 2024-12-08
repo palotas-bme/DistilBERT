@@ -3,11 +3,12 @@
     import Loading from './lib/Loading.svelte';
 
     class QA {
-        constructor(question, answer, text, link) {
+        constructor(question, answer, text, link, score) {
             this.question = question;
             this.answer = answer;
             this.text = text;
             this.link = link;
+            this.score = score;
         }
     }
 
@@ -36,10 +37,10 @@
 
         if (response.ok) {
             response.json().then((result) => {
-                result.forEach(answer => {
-                    qas.push(new QA(orig_question, answer.answer, answer.text, answer.link));
+                result.forEach((answer) => {
+                    qas.push(new QA(orig_question, answer.answer, answer.text, answer.link, answer.score));
                 });
-                
+
                 qas = qas;
             });
         } else {

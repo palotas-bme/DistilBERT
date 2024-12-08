@@ -5,8 +5,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog="DistilBERT question answerer", description="""
 DistilBERT question answerer Deeplearning assignment
                                      """)
-    parser.add_argument("-t", "--tokenizer_path", default="distilbert/distilbert-base-uncased-distilled-squad")
-    parser.add_argument("-m", "--model_path", default="distilbert/distilbert-base-uncased-distilled-squad")
+    parser.add_argument("-t", "--tokenizer_path")
+    parser.add_argument("-m", "--model_path")
     args = parser.parse_args()
 
     # We import everything after parsing the arguments so when the help is called, we don't have to wait for the imports. They can take some time.
