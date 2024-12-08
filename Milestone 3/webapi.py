@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
 import uvicorn
+import datetime
 from questionanswerer import QuestionAnswerer
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 app = FastAPI()
 app.add_middleware(
@@ -24,10 +25,14 @@ class Question(BaseModel):
     context: str | None = None
 
 class Answer(BaseModel):
-    text: str | None
-    link: str
+    text: str | None = None
+    link: str | None = None
     answer: str
     score: float | None = None
+
+class Rating(BaseModel):
+    answer: Answer
+    rating: int
 
 @app.post("/ask")
 def answer(q: Question):
@@ -42,7 +47,13 @@ def answer(q: Question):
     a = []
     for ans in model_answer:
         a.append(Answer.model_validate(ans))
+
     return a
+
+@app.post("/rate")
+def rate(r: Rating):
+    with open(f"./question-ratings/question-{datetime.datetime.now().isoformat()}.json", encoding="utf-8", mode="w") as f:
+        f.write(r.model_dump_json())
 
 
 app.mount("/", StaticFiles(directory="ai-frontend/dist", html=True), name="frontend")
