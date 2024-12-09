@@ -15,3 +15,4 @@ poc.py
 dist
 coverage.xml
 asdf*
+**/question-ratings/*

@@ -3,11 +3,12 @@
     import Loading from './lib/Loading.svelte';
 
     class QA {
-        constructor(question, answer, text, link) {
+        constructor(question, answer, text, link, score) {
             this.question = question;
             this.answer = answer;
             this.text = text;
             this.link = link;
+            this.score = score;
         }
     }
 
@@ -16,6 +17,8 @@
             'What is this?',
             'This en example question to show the UI without the backend.',
             'There is no context. But something needs to be here.',
+            null,
+            42
         ),
     ];
     let question = '';
@@ -36,10 +39,10 @@
 
         if (response.ok) {
             response.json().then((result) => {
-                result.forEach(answer => {
-                    qas.push(new QA(orig_question, answer.answer, answer.text, answer.link));
+                result.forEach((answer) => {
+                    qas.push(new QA(orig_question, answer.answer, answer.text, answer.link, answer.score));
                 });
-                
+
                 qas = qas;
             });
         } else {
@@ -49,6 +52,7 @@
         }
         loading = false;
         const container = document.querySelector('.chat-container');
+        // If we scroll down immediately the we we scroll before the answer is rendered.
         setTimeout(() => {
             container.scrollTop = container.scrollHeight;
         }, 50);
@@ -68,7 +72,7 @@
         <h1>DistilBERT question answering</h1>
         <div class="chat-container">
             {#each qas as q}
-                <Chat question={q.question} answer={q.answer} text={q.text} link={q.link} />
+                <Chat question={q.question} answer={q.answer} text={q.text} link={q.link} score={q.score} />
             {/each}
         </div>
         <div class="question-container">

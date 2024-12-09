@@ -1,18 +1,20 @@
 <script>
     let rating;
-	export let question;
-	export let answer;
-	export let text;
+    export let question;
+    export let answer;
+    export let text;
+    export let link;
+    export let score;
 
     function rate(e) {
         rating = e.target.value;
-		console.log(question, answer, text)
+        console.log(question, answer, text);
         const response = fetch('/rate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify( {rating: Number.parseInt(rating), answer: { question: question, text: text, answer: answer }}),
+            body: JSON.stringify({ rating: Number.parseInt(rating), answer: { question, text, answer, link, score } }),
         });
     }
 </script>
@@ -51,7 +53,7 @@
     .star {
         padding: 0;
         margin: 0;
-		cursor: pointer;
+        cursor: pointer;
     }
     button:active,
     .star {
