@@ -8,6 +8,7 @@ from nltk.tokenize import word_tokenize
 import nltk
 from utils import removeduplicates
 from peft import LoraConfig, PeftModel
+from torch.nn.functional import softmax
 
 
 class ContextFetcher():
@@ -121,10 +122,23 @@ class QuestionAnswerer():
             with torch.no_grad():
                 outputs = self.model(**inputs)
 
+            # Mask CLS token logits
+            outputs.start_logits[:, 0] = -float("inf")  # Ignore CLS for start position
+            outputs.end_logits[:, 0] = -float("inf")    # Ignore CLS for end position
+
             # Creating prediction for each chunk
             answer_start_index = torch.argmax(outputs.start_logits).item()
             answer_end_index = torch.argmax(outputs.end_logits).item()
-            score = outputs.start_logits[0, answer_start_index] + outputs.end_logits[0, answer_end_index]
+
+            start_probs = softmax(outputs.start_logits, dim=-1)
+            end_probs = softmax(outputs.end_logits, dim=-1)
+
+            # Creating prediction for each chunk
+            answer_start_index = torch.argmax(start_probs).item()
+            answer_end_index = torch.argmax(end_probs).item()
+
+            #score = outputs.start_logits[0, answer_start_index] + outputs.end_logits[0, answer_end_index]
+            score = start_probs[0, answer_start_index] + end_probs[0, answer_end_index]
 
             # Choosing the answer with the highest logit score
             if score > best_score:
@@ -178,4 +192,4 @@ class QuestionAnswerer():
 
 if __name__ == "__main__":
     qa = QuestionAnswerer(model_path='training/best models/2024-12-08_22-18-27_best_model')
-    print(qa.answer_question("Who is the king of Spain?", None)[0]["answer"])
+    print(qa.answer_question("Who is the king of Spain?", None))
