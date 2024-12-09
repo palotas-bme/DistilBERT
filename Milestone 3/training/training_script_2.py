@@ -15,6 +15,7 @@ from tqdm.auto import tqdm
 import collections
 from torch.utils.data import DataLoader
 
+
 # Loading the dataset
 # The MRQA dataset is included in huggingface's datasets library, so we just have to load it
 mrqa = load_dataset("mrqa", split="train[:40%]")

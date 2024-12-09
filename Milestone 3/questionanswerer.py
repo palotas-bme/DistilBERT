@@ -15,7 +15,6 @@ class ContextFetcher():
     # Function for turning the question into a search term
     def create_search_term(self, question):
         # Removing words that fall into certain parts of speach - for a more concise google search
-        # TODO: extend the list of tags to remove / possibly change it to tags to keep
         tags_to_remove = set(("DT", ".", "(", ")", ",", "--", "EX", "WDT", "WP"))
         words = word_tokenize(question)
         # Pos-tagging the tokenized words and removing the ones that fall into the throwaway categories
@@ -24,9 +23,6 @@ class ContextFetcher():
 
         # Adding wikipedia to the search term so that first search results will be wikipedia pages
         return ' '.join(words_to_keep) + " wikipedia" 
-
-        return ' '.join(words_to_keep) + " wikipedia"
-
 
     # Function for searching for the extracted words from the question on google
     @removeduplicates(checkvals=["link"])
@@ -103,7 +99,6 @@ class QuestionAnswerer():
 
     # Answering a question
     def answer_question(self, question, context):
-        # TODO add a method that reordes the answers based on the score
         if context:
             return self._answer_context(question, context)
 
