@@ -1,4 +1,4 @@
-# Function for removing duplicate values from context fetching / question answering results
+# Decorator for removing duplicate values from context fetching / question answering results
 def removeduplicates(checkvals):
     def outer(function):
         def inner(*args, **kwargs):

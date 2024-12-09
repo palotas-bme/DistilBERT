@@ -17,7 +17,6 @@ from torch.utils.data import DataLoader
 
 # Loading the dataset
 # The MRQA dataset is included in huggingface's datasets library, so we just have to load it
-# Loading dataset (smaller fraction than in the final becasue had to train on local GPU)
 mrqa = load_dataset("mrqa", split="train[:40%]")
 # Creating the train-test-validation split
 mrqa = mrqa.train_test_split(test_size=0.2)
@@ -31,6 +30,7 @@ tokenizer = AutoTokenizer.from_pretrained("distilbert/distilbert-base-uncased-di
 tokenized_mrqa = mrqa.map(preprocess_training_examples, batched=True, 
                           remove_columns=mrqa["train"].column_names,
                           fn_kwargs={"tokenizer": tokenizer})
+
 tokenized_mrqa.set_format(type="torch")
 
 # Tokenizing evaluation dataset
@@ -50,15 +50,6 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_use_double_quant=False,
 )
 
-# Configuring parameters of the low-rank adaptation
-peft_config = LoraConfig(
-    lora_alpha=6,
-    lora_dropout=0.15,
-    r=6,
-    bias="none",
-    task_type="QUESTION_ANS",
-    target_modules=["q_lin", "k_lin", "v_lin", "ffn.lin1", "ffn.lin2", "attention.out_proj"])
-
 # Loading baseline model: DistilBert finetuned on Squadn dataset
 model = DistilBertForQuestionAnswering.from_pretrained("distilbert/distilbert-base-uncased-distilled-squad",
                                                        quantization_config=bnb_config,
@@ -71,7 +62,7 @@ print(f"Exact match before finetuning: {pre_training_metrics['exact_match']}\nF1
 # Defining training parameters
 output_dir_name = "trial_run_local"
 
-# Configuring parameters of the low-rank adaptation
+# Configuring parameters of the low-rank adaptation and which layers of the network should be trained
 peft_config = LoraConfig(
     lora_alpha=6,
     lora_dropout=0.15,
@@ -80,7 +71,7 @@ peft_config = LoraConfig(
     task_type="QUESTION_ANS",
     target_modules=["q_lin", "k_lin", "v_lin", "ffn.lin1", "ffn.lin2", "attention.out_proj"])
 
-# Parameters will be later adjusted, this is only to ensure that training pipeline works as intended
+# Training arguments
 training_args = TrainingArguments(
     output_dir=output_dir_name,
     eval_strategy="steps",
@@ -113,7 +104,7 @@ wandb.init(project=wandb_project, entity=wandb_entity)
 trainer.train()
 wandb.finish()
 
-
+# Evaluating the model after the training and logging the evaluated results
 post_training_metrics = eval_function(tokenized_eval, model, mrqa["test"])
 best_ckpt_path = trainer.state.best_model_checkpoint
 

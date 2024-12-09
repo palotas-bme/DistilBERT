@@ -13,11 +13,14 @@ from peft import LoraConfig, PeftModel
 class ContextFetcher():
     # Function for turning the question into a search term
     def create_search_term(self, question):
+        # Removing words that fall into certain parts of speach - for a more concise google search
         # TODO: extend the list of tags to remove / possibly change it to tags to keep
         tags_to_remove = set(("DT", ".", "(", ")", ",", "--", "EX", "WDT", "WP"))
         words = word_tokenize(question)
+        # Pos-tagging the tokenized words and removing the ones that fall into the throwaway categories
         tagged_words = pos_tag(words)
         words_to_keep = [tagged_word[0] for tagged_word in tagged_words if tagged_word[1] not in tags_to_remove]
+        # Adding wikipedia to the search term so that first search results will be wikipedia pages
         return ' '.join(words_to_keep) + " wikipedia" 
 
     # Function for searching for the extracted words from the question on google
@@ -33,10 +36,12 @@ class ContextFetcher():
         }
         url = "https://www.google.com/search"
         
+        # Creating a google search with the search term
         response = requests.get(url, headers=headers, params=params)
         if response.status_code != 200:
             raise Exception(f"Failed to fetch search results: {response.status_code}")
         
+        # Parsing the results
         soup = bs4.BeautifulSoup(response.text, "html.parser")
         results = []
         for g in soup.find_all("div", class_="tF2Cxc"):
@@ -73,7 +78,7 @@ class ContextFetcher():
         wiki_contexts = self.get_wiki_contexts(search_results)
         return wiki_contexts
 
-
+# Class for interactive question answering functionality
 class QuestionAnswerer():
     def __init__(self, tokenizer_path="distilbert/distilbert-base-uncased-distilled-squad", 
                  model_path="distilbert/distilbert-base-uncased-distilled-squad", context_len=384):
@@ -109,16 +114,19 @@ class QuestionAnswerer():
         
         best_answer = ""
         best_score = float("-inf")
-
+        
+        # Splitting context into smaller chunks if it is longer than what the model was trained on
         for chunk in chunks:
             inputs = self.tokenizer(question, chunk, return_tensors="pt").to(self.device)
             with torch.no_grad():
                 outputs = self.model(**inputs)
 
+            # Creating prediction for each chunk
             answer_start_index = torch.argmax(outputs.start_logits).item()
             answer_end_index = torch.argmax(outputs.end_logits).item()
             score = outputs.start_logits[0, answer_start_index] + outputs.end_logits[0, answer_end_index]
 
+            # Choosing the answer with the highest logit score
             if score > best_score:
                 best_score = score
                 predict_answer_tokens = inputs.input_ids[0, answer_start_index:answer_end_index + 1]
@@ -126,7 +134,7 @@ class QuestionAnswerer():
             
         return best_answer, best_score.item()
 
-    # Splitting long contexts to shorter chunks
+    # Function for splitting too long context files into smaller chunks
     def _chunk_context(self, context):
         tokens = self.tokenizer(context, add_special_tokens=False)["input_ids"]
         chunks = [tokens[i:i+self.context_len] for i in range(0, len(tokens), self.context_len)]

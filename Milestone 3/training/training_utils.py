@@ -10,7 +10,9 @@ bleu_metric = evaluate.load("bleu")
 
 # Preprocessing function for training
 def preprocess_training_examples(examples, tokenizer, max_length=384, stride=128):
+     # Strip whitespace from questions
     questions = [q.strip() for q in examples["question"]]
+    # Tokenizing inputs
     inputs = tokenizer(
         questions,
         examples["context"],
@@ -22,12 +24,14 @@ def preprocess_training_examples(examples, tokenizer, max_length=384, stride=128
         padding="max_length",
     )
 
+    # Extract offset mappings and sample mapping
     offset_mapping = inputs.pop("offset_mapping")
     sample_map = inputs.pop("overflow_to_sample_mapping")
     answers = examples["detected_answers"]
     start_positions = []
     end_positions = []
 
+    # Iterate through each tokenized input
     for i, offset in enumerate(offset_mapping):
         sample_idx = sample_map[i]
         answer = answers[sample_idx]
@@ -35,7 +39,8 @@ def preprocess_training_examples(examples, tokenizer, max_length=384, stride=128
         end_char = answer["char_spans"][0]["end"][0]
         sequence_ids = inputs.sequence_ids(i)
 
-        # Find the start and end of the context
+        # Find the start and end of the context within the tokenized input
+        # and map them from the original text to the tokenized
         idx = 0
         while sequence_ids[idx] != 1:
             idx += 1
@@ -141,13 +146,16 @@ def compute_metrics(start_logits, end_logits, features, examples, n_best = 20, m
         else:
             predicted_answers.append({"id": example_id, "prediction_text": ""})
 
+    # Get the theoretical answers
     theoretical_answers = [
         {"id": ex["qid"], "answers": [{"text": ans, "answer_start": 0} for ans in ex["answers"]]}
         for ex in examples]
 
+    # Bleu needs everything as text
     bleu_pred = [pred["prediction_text"] for pred in predicted_answers]
     bleu_theor = [theor["answers"][0]["text"] for theor in theoretical_answers]
 
+    # Compute metrics
     result = squad_metric.compute(predictions=predicted_answers, references=theoretical_answers)
     result.update(bleu_metric.compute(predictions=bleu_pred, references=bleu_theor))
     return result

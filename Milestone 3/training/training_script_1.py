@@ -50,14 +50,6 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_use_double_quant=False,
 )
 
-# Configuring parameters of the low-rank adaptation
-peft_config = LoraConfig(
-    lora_alpha=6,
-    lora_dropout=0.15,
-    r=6,
-    bias="none",
-    task_type="QUESTION_ANS",
-    target_modules=["q_lin", "k_lin", "v_lin", "ffn.lin1", "ffn.lin2", "attention.out_proj"])
 
 # Loading baseline model: DistilBert finetuned on Squadn dataset
 model = DistilBertForQuestionAnswering.from_pretrained("distilbert/distilbert-base-uncased-distilled-squad",
