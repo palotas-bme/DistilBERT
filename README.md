@@ -26,13 +26,11 @@ Related paper:
 
 ## Current state of the project
 
-We are going to use the MRQA dataset to finetune our model which is a dataset for training LLMs for extractive question answering tasks. It includes multiple datasets (for example: SQUAD, TriviaQA, NaturalQA) in a uniform format.
-The files required for submission for Milestone 2 can be found in the Milestone 2 directory.
+We are going to use the MRQA dataset to fine-tune our model which is a dataset for training LLMs for extractive question answering tasks. It includes multiple datasets (for example: SQUAD, TriviaQA, NaturalQA) in a uniform format.
+The files required for final submission can be found in the `Milestone 3` directory.
 
 - Dockerfile can be used to build the container
 - requirements.txt contains the appropriate versions of the libraries needed to run the preprocessing script
-- main.py loads and preprocesses the dataset for training and testing the model, and runs the finetuning
-- runnung the docker image will print the result of finatuning and evaluation
 
 ## Build
 
@@ -40,8 +38,14 @@ The files required for submission for Milestone 2 can be found in the Milestone 
 make
 ```
 
+## Train
+
+```sh
+make train
+```
+
 ## Run
 
 ```sh
-docker run distilbert-finetuning:latest
+make start
 ```
